@@ -1,67 +1,43 @@
 import 'package:flutter/material.dart';
 
-class PantallaCuatro extends StatefulWidget {
-  const PantallaCuatro({Key? key}) : super(key: key);
+class Autocompletar extends StatefulWidget {
+  const Autocompletar({Key? key}) : super(key: key);
 
   @override
-  State<PantallaCuatro> createState() => _PantallaCuatroState();
+  State<Autocompletar> createState() => _AutocompletarState();
 }
 
-class _PantallaCuatroState extends State<PantallaCuatro> {
-  bool _bool = true;
+class _AutocompletarState extends State<Autocompletar> {
+  static const List<String> listItems = <String>[
+    'apple',
+    'banana',
+    'melon',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Pantalla 4",
-          style: TextStyle(
-              color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: const Text(
+            "Autocomplete",
+            style: TextStyle(
+                color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.greenAccent.shade400,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.greenAccent.shade400,
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            width: double.infinity,
-            height: 100,
-          ),
-          TextButton(
-            onPressed: () {
-              setState(() {
-                _bool = !_bool;
-              });
-            },
-            child: const Text(
-              "Switch",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-          AnimatedCrossFade(
-            firstChild: Image.asset(
-              'assets/icon/playa.jpg',
-              width: double.infinity,
-            ),
-            secondChild: Image.asset(
-              'assets/icon/mar.jpg',
-              width: double.infinity,
-            ),
-            crossFadeState:
-                _bool ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-            duration: const Duration(seconds: 1),
-          ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Regresar"),
-            ),
-          ),
-        ],
-      ),
-    );
+        body: Autocomplete<String>(
+          optionsBuilder: (TextEditingValue textEditingValue) {
+            if (textEditingValue.text == '') {
+              return const Iterable<String>.empty();
+            }
+            return listItems.where((String item) {
+              return item.contains(textEditingValue.text.toLowerCase());
+            });
+          },
+          onSelected: (String item) {
+            print('El $item fue seleccionado');
+          },
+        ));
   }
 }

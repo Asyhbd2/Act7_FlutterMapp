@@ -1,59 +1,57 @@
 import 'package:flutter/material.dart';
 
-class PantallaTres extends StatefulWidget {
-  const PantallaTres({Key? key}) : super(key: key);
+class ModeloFisicoAnimado extends StatefulWidget {
+  const ModeloFisicoAnimado({Key? key}) : super(key: key);
 
   @override
-  State<PantallaTres> createState() => _PantallaTresState();
+  State<ModeloFisicoAnimado> createState() => _ModeloFisicoAnimadoState();
 }
 
-class _PantallaTresState extends State<PantallaTres> {
-  bool selected = false;
+class _ModeloFisicoAnimadoState extends State<ModeloFisicoAnimado> {
+  bool _isFlat = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Pantalla 3",
-          style: TextStyle(
-              color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: const Text(
+            "Animated Physical Model",
+            style: TextStyle(
+                color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.redAccent,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.redAccent,
-      ),
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                selected = !selected;
-              });
-            },
-            child: Center(
-              child: Container(
-                width: double.infinity,
-                height: 250.0,
-                color: Colors.blueGrey,
-                child: AnimatedAlign(
-                  alignment:
-                      selected ? Alignment.topRight : Alignment.bottomLeft,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.fastOutSlowIn,
-                  child: const FlutterLogo(size: 50.0),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              AnimatedPhysicalModel(
+                duration: const Duration(milliseconds: 500),
+                curve: Curves.fastOutSlowIn,
+                elevation: _isFlat ? 0 : 6.0,
+                shape: BoxShape.rectangle,
+                shadowColor: Colors.black,
+                color: Colors.white,
+                child: const SizedBox(
+                  height: 120.0,
+                  width: 120.0,
+                  child: Icon(Icons.android_outlined),
                 ),
               ),
-            ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                child: const Text('Clickear'),
+                onPressed: () {
+                  setState(() {
+                    _isFlat = !_isFlat;
+                  });
+                },
+              ),
+            ],
           ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Regresar"),
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }

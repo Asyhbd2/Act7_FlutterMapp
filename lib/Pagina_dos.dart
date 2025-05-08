@@ -1,60 +1,44 @@
 import 'package:flutter/material.dart';
 
-class PantallaDos extends StatelessWidget {
-  const PantallaDos({Key? key}) : super(key: key);
+class ContenedorAnimado extends StatefulWidget {
+  const ContenedorAnimado({Key? key}) : super(key: key);
 
+  @override
+  State<ContenedorAnimado> createState() => _ContenedorAnimadoState();
+}
+
+class _ContenedorAnimadoState extends State<ContenedorAnimado> {
+  bool selected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Pantalla 2",
-          style: TextStyle(
-              color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: const Text(
+            "Animated Container",
+            style: TextStyle(
+                color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.cyan,
         ),
-        centerTitle: true,
-        backgroundColor: Colors.cyan,
-      ),
-      body: Column(
-        children: [
-          Stack(
-            alignment: AlignmentDirectional.center,
-            children: <Widget>[
-              SizedBox(
-                width: 200.0,
-                height: 100.0,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.redAccent.shade200),
-                  onPressed: () {},
-                  child: null,
-                ),
+        body: GestureDetector(
+            onTap: () {
+              setState(() {
+                selected = !selected;
+              });
+            },
+            child: Center(
+              child: AnimatedContainer(
+                width: selected ? 200.0 : 100.0,
+                height: selected ? 100.0 : 200.0,
+                color: selected ? Colors.blueGrey : Colors.white,
+                alignment: selected
+                    ? Alignment.center
+                    : AlignmentDirectional.topCenter,
+                duration: const Duration(seconds: 2),
+                curve: Curves.fastOutSlowIn,
+                child: const FlutterLogo(size: 75),
               ),
-              SizedBox(
-                width: 100.0,
-                height: 200.0,
-                child: AbsorbPointer(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade200,
-                    ),
-                    onPressed: () {},
-                    child: null,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text("Regresar"),
-            ),
-          ),
-        ],
-      ),
-    );
+            )));
   }
 }

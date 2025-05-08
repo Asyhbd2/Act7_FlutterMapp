@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:deleonrutas/Pagina_uno.dart';
+import 'package:deleonrutas/Index.dart';
 import 'package:deleonrutas/Pagina_dos.dart';
 import 'package:deleonrutas/Pagina_tres.dart';
 import 'package:deleonrutas/Pagina_cuatro.dart';
@@ -19,13 +19,13 @@ class MiRutasApp extends StatelessWidget {
       title: "Entre Paginas Routes",
       initialRoute: '/',
       routes: {
-        '/': (context) => const PantallaUno(),
-        '/pantalla2': (context) => const PantallaDos(),
-        '/pantalla3': (context) => const PantallaTres(),
-        '/pantalla4': (context) => const PantallaCuatro(),
-        '/pantalla5': (context) => const PantallaCinco(),
-        '/pantalla6': (context) => const PantallaSeis(),
-        '/pantalla7': (context) => const PantallaSiete(),
+        '/': (context) => const Index(),
+        '/pantalla1': (context) => const ContenedorAnimado(),
+        '/pantalla2': (context) => const ModeloFisicoAnimado(),
+        '/pantalla3': (context) => const Autocompletar(),
+        '/pantalla4': (context) => const Constructor(),
+        '/pantalla5': (context) => const IndicadorProgresoCircular(),
+        '/pantalla6': (context) => const Columna(),
       },
     );
   }
