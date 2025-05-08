@@ -1,27 +1,26 @@
-# Act6_Rutas
+# Act7_FlutterMapp
 ## Capturas:
-- Pagina 1:
-  
-![image](https://github.com/user-attachments/assets/0c657a2b-f60c-4f73-bacd-7a48f39ebc03)
-- Pagina 2:
-  
-![image](https://github.com/user-attachments/assets/bc1f701a-105a-45bd-b123-11fafa2f0776)
-- Pagina 3:
-  
-![image](https://github.com/user-attachments/assets/447ca41b-3a8b-4376-88ca-17f6801ca0bc)
-- Pagina 4:
-  
-![image](https://github.com/user-attachments/assets/326a15c0-134b-4242-8f7f-d0587159270c)
-- Pagina 5:
+- Index:
 
-![image](https://github.com/user-attachments/assets/86508680-1c47-45ad-bc50-96f867584d2d)
-- Pagina 6:
+![image](https://github.com/user-attachments/assets/a8d8cb73-f556-49a8-8e4e-a8849cccd7e0)
+- Animated Container:
 
-![image](https://github.com/user-attachments/assets/2ae98496-5d5c-425a-ad85-b02b8c442085)
-- Pagina 7:
+![image](https://github.com/user-attachments/assets/ca86e524-68a8-42ca-a1bc-03199ba6ac3a)
+- Animated Physical Model:
 
-![image](https://github.com/user-attachments/assets/4b288325-1502-48c2-b447-ea4b5f7bc89f)
+![image](https://github.com/user-attachments/assets/1be31723-709e-4267-9064-66acb8058011)
+- Autocomplete:
 
+![image](https://github.com/user-attachments/assets/16162132-59ec-4a89-868c-403c40653380)
+- Builder:
+
+![image](https://github.com/user-attachments/assets/78fe8326-6669-47ad-a85b-794734314e61)
+- Circular Progress Indicator:
+
+![image](https://github.com/user-attachments/assets/8283b9c5-0536-42e0-908b-42885183f547)
+- Column:
+
+![image](https://github.com/user-attachments/assets/5bd11b5d-e3a3-457b-92da-b6c8f14edafe)
 
 
 
